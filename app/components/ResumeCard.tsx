@@ -10,7 +10,7 @@ const ResumeCard = ({ resume : { id, companyName, jobTitle, feedback, imagePath 
                 <h2 className="text-black! font-bold wrap-break-word">{companyName}</h2>
                 <h3 className="text-lg wrap-break-word text-gray-500">{jobTitle}</h3>
             </div>
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
                 <ScoreCircle score={feedback.overallScore}></ScoreCircle>
             </div>
         </div>
