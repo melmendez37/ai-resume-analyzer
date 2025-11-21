@@ -30,15 +30,17 @@ const Upload = () => {
         const imageFile = await convertPdfToImage(file);
         if(!imageFile.file) return setStatusText('Error: Failed to convert PDF to image.');
 
-        setStatusText('Uploading image...');
-        const uploadedImage = await fs.upload([imageFile.file]);
-        if(!uploadedImage) return setStatusText('Error: Failed to upload image.');
+    setStatusText('Uploading image...');
+    const uploadedImage = await fs.upload([imageFile.file]);
+    if(!uploadedImage) return setStatusText('Error: Failed to upload image.');
 
         setStatusText('Preparing data...');
         const uuid = generateUUID();
         const data = {
             id: uuid,
             resumePath: uploadedFile.path,
+            // store the uploaded image path so resume page can read it
+            resumeImagePath: uploadedImage.path,
             companyName,
             jobTitle,
             jobDescription,
@@ -63,6 +65,7 @@ const Upload = () => {
 
         setStatusText('Analysis complete! Redirecting...');
         console.log('Feedback:', data.feedback);
+        navigate(`/resume/${uuid}`);
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
