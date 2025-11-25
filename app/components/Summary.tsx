@@ -32,9 +32,10 @@ const Summary = ({feedback}: {feedback: Feedback}) => {
         </div>
       </div>
 
-      <Category title='Overall Score' score={feedback.overallScore}/>
-      <Category title='ATS Compatability' score={feedback.atsCompatibility}/>
-      <Category title='Match Score' score={feedback.matchScore}/>
+      <Category title='Tone & Style' score={feedback.toneAndStyle.score}/>
+      <Category title='Content' score={feedback.content.score}/>
+      <Category title='Structure' score={feedback.structure.score}/>
+      <Category title='Skills' score={feedback.skills.score}/>
 
 
     </div>

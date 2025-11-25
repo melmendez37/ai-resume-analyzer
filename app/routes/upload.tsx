@@ -1,15 +1,15 @@
-import { AIResponseFormat } from 'constants';
-import { prepareInstructions } from 'constants';
+import { AIResponseFormat } from 'constants/index';
+import { prepareInstructions } from 'constants/index';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import FileUploader from '~/components/FileUploader';
-import NavBar from "~/components/NavBar";
+import NavBar from "../components/NavBar";
 import { convertPdfToImage } from '~/lib/pdf2img';
 import { usePuterStore } from '~/lib/puter';
 import { generateUUID } from '~/lib/utils';
 
 const Upload = () => {
-    const { auth, fs, isLoading, ai, kv } = usePuterStore();
+    const { fs, ai, kv } = usePuterStore();
     const navigate = useNavigate();
     const [ isProcessing, setIsProcessing ] = useState(false);
     const [ statusText, setStatusText ] = useState('');
@@ -52,7 +52,7 @@ const Upload = () => {
 
         const feedback = await ai.feedback(
             uploadedFile.path,
-            prepareInstructions({jobTitle, jobDescription})
+            prepareInstructions({jobTitle, jobDescription, AIResponseFormat})
         )
 
         if(!feedback) return setStatusText('Error: Failed to get feedback from AI.');
