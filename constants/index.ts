@@ -33,7 +33,7 @@ export const resumes: Resume[] = [
     id: "2",
     companyName: "Microsoft",
     jobTitle: "Cloud Engineer",
-    imagePath: "/images/resume-2.png",
+    resumeImagePath: "/images/resume-2.png",
     resumePath: "/resumes/resume-2.pdf",
     feedback: {
       overallScore: 55,
@@ -63,7 +63,7 @@ export const resumes: Resume[] = [
     id: "3",
     companyName: "Apple",
     jobTitle: "iOS Developer",
-    imagePath: "/images/resume-3.png",
+    resumeImagePath: "/images/resume-3.png",
     resumePath: "/resumes/resume-3.pdf",
     feedback: {
       overallScore: 75,
